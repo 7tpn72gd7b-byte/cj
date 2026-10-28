@@ -17,4 +17,4 @@ assert.equal(vm.runInContext("implementationDays({implementation:'2026-09-28'})"
 assert.equal(vm.runInContext("whatsappNumber('(17) 99999-9999')",context),'5517999999999');
 vm.runInContext("db.clients=[{id:'a',responsible:'Ana',nextContact:'2026-10-28',due:'2026-10-27'},{id:'b',activationStatus:'Ativada'},{id:'c'}];db.trainings=[{clientId:'a',date:'2026-10-28',status:'Agendado'},{clientId:'a',date:'2026-10-28',status:'Realizado'}]",context);
 assert.equal(vm.runInContext('dailyData().returns.length',context),1);assert.equal(vm.runInContext('dailyData().missing.length',context),1);assert.equal(vm.runInContext('dailyData().trainings.length',context),1);
-vm.runInContext('dashboard()',context);assert(node('view').innerHTML.includes('Meu dia'));console.log('Produtividade: busca, agenda, dias, WhatsApp e permissões de backup OK.');
+vm.runInContext('dashboard()',context);assert.equal(node('pageTitle').textContent,'Meu dia');assert(node('view').innerHTML.includes('daily-columns'));assert(!node('view').innerHTML.includes('daily-counts'));console.log('Produtividade: busca, agenda, dias, WhatsApp e permissões de backup OK.');
