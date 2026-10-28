@@ -2,9 +2,7 @@
 
 Código da Central de acompanhamento de clientes da Precisão Sistemas.
 
-## Desenvolvimento
-
-Requer Node.js 22 ou superior. Sem dependências externas.
+Requer Node.js 22 ou superior, sem dependências externas.
 
 ```sh
 node scripts/build.mjs
@@ -14,6 +12,6 @@ node tests/reliability.mjs
 node tests/scheduled-backup.mjs
 ```
 
-A aplicação usa Cloudflare Workers e armazenamento R2 (binding `BUCKET`). As variáveis `TEAM_ADMIN_USERNAME` e `BACKUP_OPERATOR_EMAIL` são configuradas no ambiente de hospedagem; não salve credenciais neste repositório.
+Hospedagem atual: Sites / Cloudflare Workers, R2 com binding `BUCKET`. Variáveis de ambiente: `TEAM_ADMIN_USERNAME` e `BACKUP_OPERATOR_EMAIL`. Configure valores no servidor, nunca no repositório.
 
-Os dados de clientes, contas e backups ficam no armazenamento do servidor e não fazem parte deste repositório. Este repositório é uma cópia do código; o envio ao GitHub não configura publicação automática nem transfere a hospedagem existente.
+Este repositório contém somente código e logo. Clientes, contas, senhas e backups permanecem no armazenamento do servidor. O envio ao GitHub não transfere a hospedagem nem configura publicação automática. A identidade da hospedagem existente está em `.openai/hosting.json`.
