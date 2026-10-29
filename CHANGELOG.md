@@ -1,5 +1,13 @@
 # Notas de versão — Central CS
 
+## Versão 40 — 29/10/2026
+
+- Removido o campo separado de ticket de implantação do formulário e da ficha do cliente.
+- O acompanhamento da implantação e os follow-ups passam a usar o ticket inicial, informado na entrada.
+- Valores antigos de ticket de implantação e seus históricos permanecem preservados, sem alteração em massa nos cadastros.
+- Ticket de ativação de carteira mantido, conforme fluxo já existente.
+- Versão 39 preservada no histórico.
+
 ## Versão 39 — 29/10/2026
 
 - Adicionado o indicador “Tempo médio até a ativação” no topo de Meu dia.
