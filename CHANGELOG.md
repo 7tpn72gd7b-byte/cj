@@ -1,5 +1,12 @@
 # Notas de versão — Central CS
 
+## Versão 42 — 29/10/2026
+
+- Quatro indicadores do Meu dia mais compactos, com altura mínima de 120 px e alinhamento consistente.
+- Detalhes e link de conferência do tempo médio aproximados, preservando todas as informações e o cálculo.
+- Duas colunas em telas menores, com uma coluna apenas em telas muito estreitas.
+- Alteração somente visual; versão 41 preservada.
+
 ## Versão 41 — 29/10/2026
 
 - Conferência do tempo médio com clientes considerados e excluídos, datas e prazos individuais.
