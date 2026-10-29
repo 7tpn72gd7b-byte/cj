@@ -1,5 +1,14 @@
 # Notas de versão — Central CS
 
+## Versão 41 — 29/10/2026
+
+- Conferência do tempo médio com clientes considerados e excluídos, datas e prazos individuais.
+- Relatório de ativações com espera para iniciar, duração da implantação e prazo total, incluindo médias, CSV e impressão/PDF. Cada média informa sua própria quantidade de clientes válidos.
+- Revisão recolhida de cadastros sem data de chegada, início de implantação aplicável ou vendedor.
+- Minha conta permite editar nome de exibição e trocar senha, mediante senha atual. O login e os vínculos de responsável são preservados; a troca de senha invalida outras sessões e renova a atual.
+- Verificação dos backups: agendamento encontrado pausado; cópia programada confirmada para a ocorrência de 28/10 às 12h, gravada às 13h54 de Brasília. Nenhuma execução posterior foi confirmada. O agendamento não foi reativado nesta alteração.
+- Não foi criada aba de novidades. Versão 40 preservada.
+
 ## Versão 40 — 29/10/2026
 
 - Removido o campo separado de ticket de implantação do formulário e da ficha do cliente.
