@@ -1,5 +1,13 @@
 # Notas de versão — Central CS
 
+## Versão 43 — 30/10/2026
+
+- Aviso de CNPJ já cadastrado durante o preenchimento, mostrando cliente e etapa, com botão para abrir a ficha existente. Reconhece CNPJ com ou sem pontuação e permite editar o próprio cliente.
+- Bloqueio de duplicação ao salvar mantido no navegador e no servidor. Nenhum cadastro foi mesclado ou removido.
+- Agendamento existente reafirmado para todos os dias às 12h e 18h, horário de Brasília. Cópia de verificação de 30/10 persistida e confirmada.
+- Consulta das cópias programadas agora verifica o arquivo armazenado e as quantidades de registros, ordenando pela data real de gravação.
+- Teste de restauração realizado somente em base isolada, sem restaurar ou alterar a base de produção. Versão 42 preservada.
+
 ## Versão 42 — 29/10/2026
 
 - Quatro indicadores do Meu dia mais compactos, com altura mínima de 120 px e alinhamento consistente.
