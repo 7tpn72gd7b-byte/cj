@@ -1,5 +1,14 @@
 # Notas de versão — Central CS
 
+## Versão 48 — 30/10/2026
+
+- Filtros de revenda, cidade e UF no Health Score, com limpeza rápida e fila para nunca contatados, maior tempo sem contato e retornos vencidos/hoje.
+- Evolução na ficha compara avaliações com mesmos critérios, modelo e cobertura suficiente; contatos sem resposta não geram melhora ou piora artificial.
+- Resumo do follow-up copiável para colar no ticket do Zendesk, incluindo respostas, justificativa e ação opcional. Não envia mensagens nem altera tickets.
+- Relatório mensal por revenda com entradas, churns, retornos e clientes de cada grupo, além de distribuição de saúde e exportação CSV. Saúde usa carteira ativa atual com avaliações até o fim do mês; movimentações usam o histórico registrado. Cadastros manuais novos passam a registrar a data de entrada, sem inventar datas para os antigos.
+- Recuperação de acesso e autenticação em duas etapas excluídas desta versão a pedido do usuário; acessos atuais preservados.
+- Versão 47 preservada.
+
 ## Versão 47 — 30/10/2026
 
 - Health Score com cores distintas: verde para saudável, amarelo para atenção, laranja para risco elevado, vermelho para prioridade crítica, azul para avaliação parcial e cinza para sem avaliação.
