@@ -1,5 +1,14 @@
 # Notas de versão — Central CS
 
+## Versão 44 — 30/10/2026
+
+- Nova aba Health Score com carteira própria inicialmente vazia, sem importar ou criar clientes e avaliações automaticamente. Clientes da implantação preservados.
+- Questionário embutido no cadastro e em novos follow-ups: satisfação (25%), suporte (20%), valor (20%), autonomia (15%), relacionamento (10%) e continuidade (10%).
+- Pontuação positiva/intermediária/negativa; não avaliado excluído da média. Cobertura abaixo de 60% identificada como parcial; sem resposta não gera nota.
+- Histórico de contatos, justificativa, canal, treinamento, pendências, ação opcional e retorno. Alertas de operação impedida ou intenção de cancelamento destacados separadamente da nota.
+- Indicador operacional permanece sem cálculo, sem inferir uso real do ERP. Modelo inicial de relacionamento baseado na conversa compartilhada, sem alegação de previsão de churn.
+- Dados persistidos na base compartilhada e incluídos nas cópias existentes; validação de cadastros e avaliações no servidor. Versão 43 preservada.
+
 ## Versão 43 — 30/10/2026
 
 - Aviso de CNPJ já cadastrado durante o preenchimento, mostrando cliente e etapa, com botão para abrir a ficha existente. Reconhece CNPJ com ou sem pontuação e permite editar o próprio cliente.
