@@ -1,5 +1,14 @@
 # Notas de versão — Central CS
 
+## Versão 46 — 30/10/2026
+
+- Importação Health Score com modos de adição parcial e sincronização da lista completa de uma revenda, comparando CNPJs.
+- Clientes novos são adicionados; existentes mantêm cadastro e avaliações; contratos importados ausentes da lista completa são classificados como churn e saem dos ativos, preservando histórico. Reaparições na lista completa reativam o contrato.
+- Conferência por nome e CNPJ antes de confirmar; resultados e histórico persistente em Entradas e churn, incluindo novos, mantidos, churns e retornos.
+- Filtros de ativos, churn e todos os contratos. Cadastros manuais e outras revendas não sofrem churn por ausência na planilha.
+- Sincronização completa exige confirmação e bloqueia arquivos vazios, linhas inválidas, duplicadas ou conflitos entre revendas. Carteira de implantação preservada.
+- Versão 45 preservada.
+
 ## Versão 45 — 30/10/2026
 
 - Importação de clientes por Excel (.xlsx/.xls) e CSV exclusivamente no Health Score, com modelo Excel, escolha da aba, correspondência de colunas e conferência antes de adicionar.
