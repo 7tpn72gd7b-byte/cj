@@ -1,5 +1,13 @@
 # Notas de versão — Central CS
 
+## Versão 47 — 30/10/2026
+
+- Health Score com cores distintas: verde para saudável, amarelo para atenção, laranja para risco elevado, vermelho para prioridade crítica, azul para avaliação parcial e cinza para sem avaliação.
+- Etiquetas com nome do nível e faixas laterais discretas na lista de clientes, além de legenda das cores. Mesma paleta no cadastro, no histórico e na prévia do questionário.
+- Churn identificado em cinza escuro, separado da avaliação de saúde.
+- Perfil no canto superior direito com avatar e acesso a Minha conta e Sair. Sino com contador de pendências reais: follow-ups, retornos e alertas críticos do Health Score, com acesso à ficha.
+- Pontuações, critérios e cadastros preservados. Versão 46 mantida no histórico.
+
 ## Versão 46 — 30/10/2026
 
 - Importação Health Score com modos de adição parcial e sincronização da lista completa de uma revenda, comparando CNPJs.
