@@ -1,5 +1,11 @@
 # Notas de versão — Central CS
 
+## Versão 48.1 — 30/10/2026
+
+- Corrigido o dimensionamento dos filtros do Health Score para evitar corte das opções, em especial a fila de contatos. Controles distribuídos em colunas responsivas, sem ocupar uma largura excessiva.
+- Pequenas correções passam a usar sufixo decimal sobre a versão de produto publicada. Esta correção parte da versão 48; funcionalidades novas continuam a incrementar a versão principal.
+- Dados, cálculos e regras de importação preservados.
+
 ## Versão 48 — 30/10/2026
 
 - Filtros de revenda, cidade e UF no Health Score, com limpeza rápida e fila para nunca contatados, maior tempo sem contato e retornos vencidos/hoje.
