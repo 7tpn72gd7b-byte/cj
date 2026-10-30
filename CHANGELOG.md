@@ -1,5 +1,10 @@
 # Notas de versão — Central CS
 
+## Versão 48.2 — 30/10/2026
+
+- Buscar cliente, Atualizar página e Novo cliente posicionados antes do sino de notificações e do perfil, na mesma linha do cabeçalho em telas maiores.
+- Em telas pequenas, os controles se ajustam para manter textos e ações acessíveis.
+
 ## Versão 48.1 — 30/10/2026
 
 - Corrigido o dimensionamento dos filtros do Health Score para evitar corte das opções, em especial a fila de contatos. Controles distribuídos em colunas responsivas, sem ocupar uma largura excessiva.
