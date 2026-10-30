@@ -1,5 +1,13 @@
 # Notas de versão — Central CS
 
+## Versão 45 — 30/10/2026
+
+- Importação de clientes por Excel (.xlsx/.xls) e CSV exclusivamente no Health Score, com modelo Excel, escolha da aba, correspondência de colunas e conferência antes de adicionar.
+- Revenda, cidade e estado (UF) solicitados no cadastro Health Score e na importação; informações exibidas na lista e na ficha.
+- CNPJs repetidos e linhas inválidas são sinalizados e ignorados, sem substituir clientes nem avaliações existentes.
+- Importação não cria avaliações e não altera a carteira de implantação. Arquivo lido no navegador com biblioteca local, sem envio da planilha a serviços externos.
+- Versão 44 preservada.
+
 ## Versão 44 — 30/10/2026
 
 - Nova aba Health Score com carteira própria inicialmente vazia, sem importar ou criar clientes e avaliações automaticamente. Clientes da implantação preservados.
