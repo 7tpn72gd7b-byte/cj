@@ -1,5 +1,13 @@
 # Notas de versão — Central CS
 
+## Versão 48.4 — 04/11/2026
+
+- Cadastros organizados em seções, preservando todos os campos e regras existentes. Painel lateral com Cancelar e Salvar sempre acessíveis durante a rolagem.
+- Identificação, contrato e implantação separados visualmente; Health Score com identificação e localização agrupadas.
+- Fonte consistente, rótulos associados aos campos, foco visível e transições discretas com respeito à redução de movimento.
+- Tabelas com nomes sem cortes, melhor contraste de CNPJ e datas, números alinhados e ações em posição consistente.
+- Logo, cores das etapas, indicadores, dados e regras de negócio preservados.
+
 ## Versão 48.3 — 04/11/2026
 
 - Cabeçalho compacto e confirmação discreta de sincronização, preservando avisos e recuperação em caso de falha.
