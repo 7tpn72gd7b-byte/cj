@@ -1,5 +1,14 @@
 # Notas de versão — Central CS
 
+## Versão 48.3 — 04/11/2026
+
+- Cabeçalho compacto e confirmação discreta de sincronização, preservando avisos e recuperação em caso de falha.
+- Quatro indicadores alinhados, estados vazios do Meu dia compactos e pendências destacadas. Registros com contraste e leitura melhores.
+- Ícones do menu padronizados; troca de acesso e saída concentradas no perfil superior.
+- Health Score sem clientes destaca importação e cadastro, com filtros exibidos quando há registros.
+- Login com cartão centralizado, logo equilibrado, Entrar na largura dos campos e links secundários discretos. Orientação de usuário restrita ao cadastro.
+- Dados, autenticação, importação e cálculos preservados.
+
 ## Versão 48.2 — 30/10/2026
 
 - Buscar cliente, Atualizar página e Novo cliente posicionados antes do sino de notificações e do perfil, na mesma linha do cabeçalho em telas maiores.
