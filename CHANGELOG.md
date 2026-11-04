@@ -1,5 +1,14 @@
 # Notas de versão — Central CS
 
+## Versão 49 — 04/11/2026
+
+- Posição de rolagem da lista preservada ao fechar fichas e formulários, com destaque discreto ao cliente consultado.
+- Proteção de formulários com alterações não salvas ao fechar, pressionar Esc, trocar de formulário ou sair da página; salvamento válido libera a navegação. Rascunhos não são armazenados.
+- Linha do tempo na ficha com chegada, contrato, onboarding, implantação e ativação e prazos calculados sem inventar datas.
+- Prévia do último contato na tabela. Contatos e follow-ups são separados de alterações automáticas de cadastro; novos registros de contato recebem marcação explícita.
+- Health Score sinaliza revisão após 30 dias da última avaliação respondida com critérios preenchidos ou alerta crítico. Churn e contatos sem resposta não renovam a avaliação; a nota permanece inalterada.
+- Filtros, cadastros existentes e importações preservados.
+
 ## Versão 48.4 — 04/11/2026
 
 - Cadastros organizados em seções, preservando todos os campos e regras existentes. Painel lateral com Cancelar e Salvar sempre acessíveis durante a rolagem.
