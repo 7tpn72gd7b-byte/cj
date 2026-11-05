@@ -1,3 +1,11 @@
+## Versão 50.1 — 05/11/2026
+
+- Refinamento visual do Meu dia conforme a ilustração aprovada: títulos e nomes de clientes mais destacados, indicadores alinhados e botões de ação com largura consistente.
+- Cards brancos com bordas discretas, ícones mais leves e cores pontuais para seleção, atraso e atenção.
+- Agenda, resumo mensal e seções recolhidas com espaçamento e tipografia padronizados; ajuste para telas menores.
+- Transição sutil ao trocar as filas, respeitando a preferência por movimento reduzido.
+- Cálculos, filtros, cadastros, autenticação e backups mantidos.
+
 # v50 — 05/11/2026
 
 - Meu dia reorganizado com os quatro indicadores, prioridades em Vencidos, Hoje e Clientes parados, agenda lateral e evolução mensal da carteira.
