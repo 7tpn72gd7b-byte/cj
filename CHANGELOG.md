@@ -1,3 +1,12 @@
+# v50 — 05/11/2026
+
+- Meu dia reorganizado com os quatro indicadores, prioridades em Vencidos, Hoje e Clientes parados, agenda lateral e evolução mensal da carteira.
+- Ações diretas para contato, follow-up, ficha e avaliação Health Score, com paginação para evitar telas longas.
+- Clientes parados destacados após 7 dias sem movimentação, com critério ajustável para 7, 14, 21 ou 30 dias neste navegador.
+- Atalho para retomar a última ficha consultada; histórico e revisão de cadastros mantidos recolhidos.
+- Agenda utiliza datas reais, sem inventar horários. Churn identificado como exclusivo do Health Score; os quatro indicadores mantêm os cálculos existentes.
+- Dados, autenticação, base compartilhada e backups preservados.
+
 # Notas de versão — Central CS
 
 ## Versão 49 — 04/11/2026
