@@ -1,3 +1,9 @@
+## Versão 52 — 06/11/2026
+
+- Organização manual dos scripts por categoria, com setas para subir e descer e salvamento da sequência no servidor.
+- Ordem preservada nos próximos acessos e na busca, sem alterar os textos; alterações simultâneas protegidas por controle de versão.
+- Acesso e organização exclusivos do administrador, com histórico privado antes de cada alteração.
+
 ## Versão 51.1 — 06/11/2026
 
 - Complemento dos textos nas cinco categorias com o arquivo completo de onboarding enviado pelo administrador.
