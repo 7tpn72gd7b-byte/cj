@@ -1,3 +1,12 @@
+## Versão 51 — 06/11/2026
+
+- Nova aba Scripts de atendimento exclusiva do administrador, com cinco categorias: Onboarding, Cliente já existente, Follow-up onboarding, Ativação de carteira e Módulo adicional.
+- Busca por título e conteúdo dentro da categoria, visualização, cópia, criação e edição de mensagens.
+- Exclusão reversível na lixeira, restauração e versões privadas antes de cada alteração.
+- Autorização de administrador validada no servidor, proteção contra alterações simultâneas e armazenamento separado da base de clientes.
+- Textos iniciais do arquivo enviados para configuração privada do servidor; nenhuma mensagem interna é incluída no HTML público ou no GitHub.
+- Cadastros, autenticação, indicadores e backups da base compartilhada mantidos.
+
 ## Versão 50.1 — 05/11/2026
 
 - Refinamento visual do Meu dia conforme a ilustração aprovada: títulos e nomes de clientes mais destacados, indicadores alinhados e botões de ação com largura consistente.
