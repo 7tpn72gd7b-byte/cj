@@ -1,3 +1,9 @@
+## Versão 52.1 — 06/11/2026
+
+- Organização dos scripts por arrastar e soltar, substituindo os botões de subir e descer.
+- Alça de arraste com destaque visual, suporte a mouse e toque, rolagem ao alcançar as bordas e alternativa pelas setas do teclado.
+- Sequência continua salva por categoria no servidor, preservando textos e permissões.
+
 ## Versão 52 — 06/11/2026
 
 - Organização manual dos scripts por categoria, com setas para subir e descer e salvamento da sequência no servidor.
