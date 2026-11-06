@@ -1,3 +1,11 @@
+## Versão 51.1 — 06/11/2026
+
+- Complemento dos textos nas cinco categorias com o arquivo completo de onboarding enviado pelo administrador.
+- Mensagens ao cliente e orientações para tickets separadas por situação, preservando os textos originais e sinalizando datas, valores e vencimentos que precisam de revisão.
+- Importação idempotente de novos modelos, preservando scripts criados ou editados pelo administrador e itens da lixeira.
+- Os dois modelos preliminares, quando ainda não editados, passam à lixeira para evitar confusão com o material completo; continuam recuperáveis.
+- Conteúdo mantido em configuração privada do servidor, fora do código público e do GitHub.
+
 ## Versão 51 — 06/11/2026
 
 - Nova aba Scripts de atendimento exclusiva do administrador, com cinco categorias: Onboarding, Cliente já existente, Follow-up onboarding, Ativação de carteira e Módulo adicional.
