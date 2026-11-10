@@ -1,3 +1,9 @@
+## Versão 52.2 — 10/11/2026
+
+- Atualizações rápidas mostram atividade no botão; o robô aparece só quando a espera é perceptível.
+- O robô pega o ticket apenas após a confirmação dos dados. Em esperas longas, a mensagem indica sincronização; em falhas, é possível tentar novamente.
+- O painel se atualiza sem recarregar a tela inteira e respeita a preferência por movimento reduzido.
+
 ## Versão 52.1 — 06/11/2026
 
 - Organização dos scripts por arrastar e soltar, substituindo os botões de subir e descer.

@@ -78,10 +78,64 @@ function consolidatedReport(){let result=consolidatedData(),all=[...new Set(db.c
 function consolidatedTable(result){return '<div class="tablewrap"><table><thead><tr><th>Responsável</th><th>Entradas</th><th>Ativações</th><th>Em implantação hoje</th><th>Follow-ups vencidos/hoje</th></tr></thead><tbody>'+result.groups.map(g=>'<tr>'+[g.name,g.arrivals,g.activations,g.implementation,g.followups].map(v=>'<td>'+esc(v)+'</td>').join('')+'</tr>').join('')+'<tr>'+['Total',result.totals.arrivals,result.totals.activations,result.totals.implementation,result.totals.followups].map(v=>'<td><strong>'+esc(v)+'</strong></td>').join('')+'</tr></tbody></table></div>'}
 function exportConsolidated(){let result=consolidatedData(),data=[['Mês','Responsável','Entradas','Ativações','Em implantação hoje','Follow-ups vencidos/hoje'],...result.groups.map(g=>[result.month,g.name,g.arrivals,g.activations,g.implementation,g.followups]),[result.month,'TOTAL',result.totals.arrivals,result.totals.activations,result.totals.implementation,result.totals.followups]];let blob=new Blob(['\uFEFF'+data.map(row=>row.map(csvCell).join(';')).join('\r\n')],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='relatorio-cs-'+result.month+'.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
 function printConsolidated(){let result=consolidatedData();$('printReport').innerHTML='<h1>Relatório mensal de CS</h1><p>Período: '+esc(result.month.slice(5)+'/'+result.month.slice(0,4))+' · Emissão: '+fmt(activationToday())+'</p><p>Entradas e ativações no mês. Implantações e follow-ups são pendências atuais.</p>'+consolidatedTable(result);window.print()}
-setInterval(async()=>{if(!cloudReady||legacyMode||syncing||cloudConflict||document.visibilityState!=='visible'||$('modal').open||localStorage.getItem('ps_cs_pending')==='1')return;try{let response=await fetchTimed('/api/state',{cache:'no-store'});if(!response.ok)return;let remote=await response.json();if(localStorage.getItem('ps_cs_pending')==='1'||$('modal').open||syncing)return;if(remote.scopeId!==localStorage.getItem('ps_cs_local_owner')){location.reload();return}if(remote.etag===cloudEtag||!remote.data)return;localStorage.setItem('ps_cs_autorefresh_backup',JSON.stringify(db));db=remote.data;db.user=remote.name||db.user;cloudEtag=remote.etag;localStorage.setItem(KEY,JSON.stringify(db));localStorage.setItem('ps_cs_cloud_etag',cloudEtag);render();syncMessage('✓ Atualizado com os registros do servidor às '+new Date().toLocaleTimeString('pt-BR'))}catch{}},45000);
+setInterval(async()=>{if(dashboardRefreshing||!cloudReady||legacyMode||syncing||cloudConflict||document.visibilityState!=='visible'||$('modal').open||localStorage.getItem('ps_cs_pending')==='1')return;try{let response=await fetchTimed('/api/state',{cache:'no-store'});if(!response.ok)return;let remote=await response.json();if(dashboardRefreshing||localStorage.getItem('ps_cs_pending')==='1'||$('modal').open||syncing)return;if(remote.scopeId!==localStorage.getItem('ps_cs_local_owner')){location.reload();return}if(remote.etag===cloudEtag||!remote.data)return;localStorage.setItem('ps_cs_autorefresh_backup',JSON.stringify(db));db=remote.data;db.user=remote.name||db.user;cloudEtag=remote.etag;localStorage.setItem(KEY,JSON.stringify(db));localStorage.setItem('ps_cs_cloud_etag',cloudEtag);render();syncMessage('✓ Atualizado com os registros do servidor às '+new Date().toLocaleTimeString('pt-BR'))}catch{}},45000);
 
 function stageClass(stage){return ({'Entrada':'stage-entry','Contrato':'stage-contract','Onboarding':'stage-onboarding','Treinamento':'stage-onboarding','Implantação':'stage-implementation','Ativação de carteira':'stage-done','Concluído':'stage-done','Ativada':'stage-done'})[stage]||'stage-entry'}
 function stageBadge(stage,label=stage){return '<span class="tag '+stageClass(stage)+'">'+esc(label||'—')+'</span>'}
 function categoryStageClass(category){return ({contract:'stage-contract',implementation:'stage-implementation',activation:'stage-done'})[category]||'stage-entry'}
 
 function loadingMarkup(){return `<div class="cs-loading robot-loading" role="status" aria-live="polite" aria-busy="true"><h1 class="auth-brand"><img src="/brand-logo-v1.svg" alt="Central CS" width="300" height="74"></h1><div class="robot-stage" aria-hidden="true"><div class="robot-track"></div><div class="robot-runner"><div class="robot-frame"><img src="/cs-robot-run-v2.png" class="robot-sprite" alt="" width="2172" height="724"></div></div><svg class="robot-ticket" viewBox="0 0 90 65"><path d="M8 8h74v14a10 10 0 0 0 0 20v14H8V42a10 10 0 0 0 0-20z" fill="white" stroke="#10b7b7" stroke-width="3"/><circle cx="29" cy="32" r="10" fill="#10b7b7"/><path d="m24 32 4 4 7-9" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"/><path d="M47 24h21M47 33h18M47 42h14" stroke="#b6d3e3" stroke-width="3" stroke-linecap="round"/></svg><div class="robot-party"><i>✦</i><i>✧</i><i>✦</i></div></div><p class="loading-caption">Só um instante…<br><span>esse ticket tá ligeiro!</span></p><small>Carregando seus registros</small></div>`}
+
+let dashboardRefreshing=false,refreshFeedbackTimer;
+function clearRefreshFeedback(){clearTimeout(refreshFeedbackTimer);const panel=$('refreshFeedback');panel.hidden=true;panel.className='refresh-feedback';panel.replaceChildren()}
+async function refreshDashboard(){
+ if(dashboardRefreshing)return;
+ if(legacyMode){refreshPage();return}
+ dashboardRefreshing=true;clearRefreshFeedback();
+ const button=$('refreshPageButton'),panel=$('refreshFeedback');
+ button.setAttribute('aria-busy','true');button.setAttribute('aria-disabled','true');
+ button.lastChild.textContent=' Atualizando…';
+ const reveal=setTimeout(()=>{
+  const stage=document.createElement('template');stage.innerHTML=loadingMarkup();
+  panel.append(stage.content.querySelector('.robot-stage'));
+  panel.insertAdjacentHTML('beforeend','<p role="status"><strong>Esse ticket tá ligeiro!</strong><br><small>Carregando seus registros</small></p>');
+  panel.hidden=false;
+ },400);
+ const slow=setTimeout(()=>{const status=panel.querySelector('[role=status]');if(status)status.textContent='Ainda sincronizando os registros…'},3000);
+ try{
+  if(syncing||localStorage.getItem('ps_cs_pending')==='1')await queueCloud();
+  if(localStorage.getItem('ps_cs_pending')==='1')throw Error('Há alterações locais pendentes. Sincronize ou exporte um backup antes de atualizar.');
+  const response=await fetchTimed('/api/state',{cache:'no-store'});
+  if(response.status===401)throw Error('Sua sessão expirou. Entre novamente para atualizar os registros.');
+  if(!response.ok)throw Error('Não foi possível carregar os registros do servidor.');
+  const remote=await response.json();
+  if(syncing||localStorage.getItem('ps_cs_pending')==='1'||$('modal').open)throw Error('Conclua a edição em andamento antes de atualizar.');
+  if(remote.scopeId!==localStorage.getItem('ps_cs_local_owner')){location.reload();return}
+  if(remote.data&&remote.etag!==cloudEtag){
+   localStorage.setItem('ps_cs_autorefresh_backup',JSON.stringify(db));
+   db=remote.data;db.user=remote.name||db.user;
+   cloudEtag=remote.etag;localStorage.setItem(KEY,JSON.stringify(db));
+   if(cloudEtag)localStorage.setItem('ps_cs_cloud_etag',cloudEtag);
+  }
+  teamIsShared=!!remote.shared;isTeamAdmin=!!remote.isAdmin;canRestoreBackups=!!remote.canRestore;
+  if(remote.displayName)$('who').textContent=remote.displayName;
+  render();
+  if(current==='scripts'&&scriptsAllowed()){await loadScripts(true);if(scriptError)throw Error(scriptError)}
+  syncMessage('✓ Página atualizada');
+  if(!panel.hidden){
+   const elements=[...panel.querySelectorAll('.robot-runner,.robot-ticket')];
+   const starts=elements.map(el=>getComputedStyle(el).transform);
+   panel.classList.add('is-caught');
+   panel.querySelector('[role=status]').innerHTML='<strong>✓ Página atualizada</strong>';
+   if(!matchMedia('(prefers-reduced-motion: reduce)').matches)elements.forEach((el,i)=>el.animate([{transform:starts[i]},{transform:getComputedStyle(el).transform}],{duration:230,easing:'ease-out'}));
+   refreshFeedbackTimer=setTimeout(clearRefreshFeedback,870);
+  }
+ }catch(error){
+  panel.className='refresh-feedback is-failed';
+  panel.innerHTML='<p role="alert"><strong>Não foi possível atualizar</strong><br><small>'+esc(error.message)+'</small></p><button type="button" onclick="refreshDashboard()">Tentar novamente</button><button type="button" class="secondary" onclick="clearRefreshFeedback()">Fechar</button>';
+  panel.hidden=false;
+ }finally{
+  clearTimeout(reveal);clearTimeout(slow);dashboardRefreshing=false;
+  button.removeAttribute('aria-busy');button.removeAttribute('aria-disabled');button.lastChild.textContent=' Atualizar página';
+ }
+}
