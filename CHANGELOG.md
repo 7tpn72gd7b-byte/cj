@@ -1,3 +1,10 @@
+## Versão 53 — 10/11/2026
+
+- Pós-ativação com retornos de 7, 30 e 60 dias, vinculados à data da ativação. Inclusão opcional para carteiras já ativadas.
+- Planos de ação e encaminhamentos com responsável, prazo, ticket quando aplicável e histórico de conclusão ou cancelamento.
+- Pendências aparecem no Meu dia, com atalho para abrir e tratar a ação.
+- Relatório de gargalos com prazo mínimo, média por etapa e acesso às fichas. Registros sem data válida ficam fora dos cálculos.
+
 ## Versão 52.3 — 10/11/2026
 
 - Ficha com resumo da etapa, responsável, último contato e próximo passo, ação principal contextual e linha do tempo destacando a etapa atual.

@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import vm from 'node:vm';
+import {readFile} from 'node:fs/promises';
+const ctx=vm.createContext({Intl,Date,fmt:x=>x,normalizeSearch:s=>s.toLowerCase(),datePlus:(d,n)=>new Date(Date.parse(d+'T12:00:00Z')+n*86400000).toISOString().slice(0,10)});
+const day=await readFile('app/day-focus.js','utf8'),work=await readFile('app/operations.js','utf8'),server=await readFile('worker/history.js','utf8');
+vm.runInContext(day.slice(0,day.indexOf('let dayFocusTab'))+work.slice(0,work.indexOf('const workBaseReports'))+server.slice(server.indexOf('function validISODate'),server.indexOf('function clientDateError')),ctx);
+ctx.client={id:'a',fantasy:'Teste',activationStatus:'Ativada',activationDate:'2026-11-10',postActivation:true,responsible:'Ana'};
+const check=(code,want)=>assert.deepEqual(JSON.parse(JSON.stringify(vm.runInContext(code,ctx))),want);
+check('activationWork(client).map(t=>t.due)',['2026-11-17','2026-12-10','2027-01-09']);
+check("workQueue({clients:[client]},'2026-11-17','Ana',true).map(t=>t.taskId)",['post-7']);
+check("workQueue({clients:[client]},'2026-11-17','Outro',true).length",0);
+vm.runInContext("client.csWork=[{...activationWork(client)[0],status:'done',outcome:'Operação confirmada',closedAt:'2026-11-17T12:00:00Z',closedBy:'Ana'}]",ctx);
+check("workQueue({clients:[client]},'2026-11-17','Ana',true).length",0);
+check('csWorkValidation({clients:[client]})',null);
+check("csWorkValidation({clients:[{csWork:[{...client.csWork[0],id:'ticket',type:'handoff',team:'Suporte',ticket:''}]}]})",'Equipe ou ticket do encaminhamento inválido.');
+check("bottleneckModel([client,{id:'b',fantasy:'B',contractPortal:'2026-11-01'},{id:'c',fantasy:'C',implementationConfirmed:true}],'2026-11-11',10).map(g=>[g.rows.length,g.missing])",[[0,0],[1,0],[0,0],[0,0],[0,1]]);
+console.log('Operações: cadência, escopo, conclusão, validação e gargalos conferidos.');
