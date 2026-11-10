@@ -1,3 +1,10 @@
+## Versão 52.3 — 10/11/2026
+
+- Ficha com resumo da etapa, responsável, último contato e próximo passo, ação principal contextual e linha do tempo destacando a etapa atual.
+- Histórico de contatos separado das demais movimentações; cadastro, retornos e treinamentos organizados em seções.
+- Clientes, Health Score e Relatórios com totais e filtros ativos visíveis; busca nas entradas e limpeza de filtros.
+- Confirmação de salvamento consistente no painel e na ficha, distinguindo salvamento em curso, alterações pendentes e confirmação do servidor.
+
 ## Versão 52.2 — 10/11/2026
 
 - Atualizações rápidas mostram atividade no botão; o robô aparece só quando a espera é perceptível.
