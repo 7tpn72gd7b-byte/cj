@@ -1,3 +1,8 @@
+## Versão 53.1 — 11/11/2026
+
+- Relatórios em PDF e impressão com página A4 em paisagem, margens de 12 mm e uso de toda a largura disponível.
+- Tabelas com quebra de texto, cabeçalhos repetidos e proteção contra corte de linhas entre páginas.
+
 ## Versão 53 — 10/11/2026
 
 - Pós-ativação com retornos de 7, 30 e 60 dias, vinculados à data da ativação. Inclusão opcional para carteiras já ativadas.
