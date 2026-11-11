@@ -14,14 +14,14 @@ function compactJourney(c){
 function layoutNavigation(){
  polishNavigation();let nav=document.querySelector('#app>aside>nav');if(!nav)return;
  nav.querySelectorAll('.nav-group-label').forEach(e=>e.remove());
- for(const [label,keys] of [['Rotina',['dashboard','clients','alerts']],['Gestão',['health','reports']],['Administração',['scripts','team','backup']],['',['account']]]){
+ for(const [label,keys] of [['Rotina',['dashboard','clients','kanban','alerts']],['Gestão',['health','reports']],['Administração',['scripts','team','backup']],['',['account']]]){
   let items=keys.map(k=>$('nav-'+k)).filter(Boolean);if(!items.length)continue;
   if(label){let h=document.createElement('span');h.className='nav-group-label';h.textContent=label;nav.append(h)}
   items.forEach(b=>nav.append(b));
  }
  const scripts=$('nav-scripts');if(scripts)scripts.innerHTML=scriptsLockIcon()+'<span>Scripts</span>';
  $('nav-account')?.classList.add('nav-account-bottom');
- if(current==='clients'){$('pageTitle').textContent='Clientes';$('subtitle').textContent='Acompanhe cada etapa da sua carteira'}else $('subtitle').textContent='Acompanhamento de ponta a ponta';
+ if(current==='clients'){$('pageTitle').textContent='Clientes';$('subtitle').textContent='Acompanhe cada etapa da sua carteira'}else if(current==='kanban'){$('pageTitle').textContent='Kanban';$('subtitle').textContent='Acompanhe os clientes em cada etapa'}else $('subtitle').textContent='Acompanhamento de ponta a ponta';
 }
 function closeClientPane(restoreFocus=true){clientPaneId='';clientPaneDismissed=true;listActiveClient='';$('clientWorkspace')?.classList.remove('has-client-pane');let pane=$('clientSidePanel');if(pane){pane.hidden=true;pane.innerHTML=''}document.querySelectorAll('#clientRows tr').forEach(r=>r.classList.remove('client-row-selected'));if(restoreFocus)$('clientRows')?.querySelector('button')?.focus({preventScroll:true})}
 const layoutOriginalDetail=detail;

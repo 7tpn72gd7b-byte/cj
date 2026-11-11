@@ -1,3 +1,10 @@
+## Versão 55 — 11/11/2026
+
+- Aba Kanban em Rotina com cinco etapas automáticas, contadores e cartões dos clientes já cadastrados, sem duplicação de dados.
+- Busca, filtro por responsável, Minha carteira e mês exclusivo das ativações; destaque para próximas ações e pendências.
+- Arrastar para avançar ou usar o botão Mover, com confirmação das datas e ticket na ativação. Sem regressão automática nem datas históricas inventadas.
+- Ficha lateral reutilizada para consultar contatos, histórico e ações; quadro com rolagem horizontal no celular.
+
 ## Versão 54 — 11/11/2026
 
 - Layout da carteira inspirado na ilustração aprovada: navegação por grupos, três indicadores, abas e filtros compactos, lista com etapa e próxima ação.
