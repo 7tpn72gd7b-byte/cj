@@ -1,3 +1,8 @@
+## Versão 53.2 — 11/11/2026
+
+- PDF de ativações simplificado para apresentar somente a lista de clientes, com CNPJ, ativação, ticket e vendedor, mantendo os filtros aplicados e o formato paisagem.
+- Removidos da impressão o resumo por vendedor, as médias e a tabela adicional de prazos.
+
 ## Versão 53.1 — 11/11/2026
 
 - Relatórios em PDF e impressão com página A4 em paisagem, margens de 12 mm e uso de toda a largura disponível.
