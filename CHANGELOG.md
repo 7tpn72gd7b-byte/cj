@@ -1,3 +1,10 @@
+## Versão 54 — 11/11/2026
+
+- Layout da carteira inspirado na ilustração aprovada: navegação por grupos, três indicadores, abas e filtros compactos, lista com etapa e próxima ação.
+- Ficha lateral com jornada, responsável, contato e ativação em destaque; detalhes, planos e históricos continuam disponíveis. Em telas menores, a ficha fica abaixo da lista.
+- Busca, filtros, ordenação crescente, permissões e gravação compartilhada preservados.
+- Removida dos cadastros a opção de adicionar/agendar treinamentos, preservando o histórico existente.
+
 ## Versão 53.2 — 11/11/2026
 
 - PDF de ativações simplificado para apresentar somente a lista de clientes, com CNPJ, ativação, ticket e vendedor, mantendo os filtros aplicados e o formato paisagem.

@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import vm from 'node:vm';
+import {readFile} from 'node:fs/promises';
+const source=await readFile('app/layout.js','utf8');
+const context=vm.createContext({statusAlert:c=>c.alert,nextCustomerWork:c=>c.work,workAction:(name,...args)=>name+':'+args.join(','),nextAction:()=> 'Lançar contrato',activationToday:()=> '2026-11-11',datePlus:()=> '2026-11-12',fmt:d=>d});
+vm.runInContext(source.slice(0,source.indexOf('function layoutMetrics')),context);
+context.client={id:'a',nextContact:'2026-11-13',nextContactNote:'Retorno',alert:{due:'2026-11-11'},work:{id:'risk1',title:'Resolver pendência',due:'2026-11-10'}};
+assert.equal(vm.runInContext('clientNextStep(client).label',context),'Resolver pendência');
+assert.equal(vm.runInContext('clientNextStep(client).call',context),'workDetail:client,a,risk1');
+assert.equal(vm.runInContext('clientStepDate("2026-11-11")',context),'Hoje');
+assert.equal(vm.runInContext('clientStepDate("2026-11-12")',context),'Amanhã');
+assert.equal(vm.runInContext('clientNextStep({id:"b"}).label',context),'Lançar contrato');
+console.log('Layout: próxima ação por prazo, destinos corretos e rótulos de data verificados.');
