@@ -1,5 +1,11 @@
 # Histórico do VIMO
 
+## 4 — 12/11/2026
+
+- Layout mobile recalibrado para 320–760 px, com escala, espaçamento e prévia mais proporcionais.
+- Etapas reorganizadas verticalmente para que cada orientação fique confortável de ler no celular.
+- CTAs, menu, cards, WhatsApp, convite e rodapé refinados para o uso com uma mão.
+
 ## 2 — 12/11/2026
 
 - Apresentação com prévia do aplicativo na primeira tela.
