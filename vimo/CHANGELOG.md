@@ -7,3 +7,4 @@
 - Conteúdo visível sem animações obrigatórias, melhor contraste e navegação por teclado.
 - Privacidade e termos da demonstração.
 - Imagem WebP otimizada e configuração Netlify.
+- WhatsApp no canto inferior esquerdo, separado do selo Netlify.
