@@ -1,3 +1,11 @@
+## Versão 56 — 13/11/2026
+
+- Central de pendências no Meu dia: visão Todas, filtro por tipo, seis itens por página e acesso direto aos retornos, follow-ups, ações, encaminhamentos e Health Score.
+- Clientes parados também incluem etapas anteriores à implantação; a visão Todas evita repetir o alerta de inatividade quando o cliente já tem uma pendência com prazo.
+- Busca global nas bases Central CS e Health Score, com filtro de origem, paginação e abertura da ficha correta; busca por proprietário, responsável, revenda, cidade e tickets de encaminhamento.
+- CNPJ com ou sem pontuação, acentos e ticket com # aceitos. Atalho Ctrl/Cmd+K para buscar quando não houver formulário aberto.
+- Nenhum cadastro, data ou etapa é alterado pela busca e pelas filas.
+
 ## Versão 55 — 11/11/2026
 
 - Aba Kanban em Rotina com cinco etapas automáticas, contadores e cartões dos clientes já cadastrados, sem duplicação de dados.
