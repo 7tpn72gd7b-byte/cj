@@ -1,3 +1,8 @@
+## Versão 56.1 — 13/11/2026
+
+- Rodapé centralizado em duas linhas, com separação entre direitos autorais e crédito de desenvolvimento.
+- Mais espaçamento, divisor discreto e destaque suave para Júlio Novais; adaptação para celular.
+
 ## Versão 56 — 13/11/2026
 
 - Central de pendências no Meu dia: visão Todas, filtro por tipo, seis itens por página e acesso direto aos retornos, follow-ups, ações, encaminhamentos e Health Score.
