@@ -1,8 +1,9 @@
+import {DEPLOY_CONTEXT} from '../lib/deploy-context.generated.mjs';
 import {getStore} from '@netlify/blobs';
 import {bucketFromStore} from '../lib/bucket.mjs';
 import {createScheduledSnapshot} from '../lib/server.generated.mjs';
 export default async function(){
- if(process.env.CONTEXT !== 'production')throw Error('Backup permitido somente em produção.');
+ if(DEPLOY_CONTEXT !== 'production')throw Error('Backup permitido somente em produção.');
  const env={BUCKET:bucketFromStore(getStore({name:'central-cs',consistency:'strong'})),TEAM_ADMIN_USERNAME:process.env.TEAM_ADMIN_USERNAME||'juliocnovais'};
  if(!await env.BUCKET.get('migration/ready.json'))throw Error('Migração ainda não concluída.');
  const result=await createScheduledSnapshot(env);

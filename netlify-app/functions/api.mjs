@@ -1,9 +1,10 @@
+import {DEPLOY_CONTEXT} from '../lib/deploy-context.generated.mjs';
 import {getStore} from '@netlify/blobs';
 import {bucketFromStore} from '../lib/bucket.mjs';
 import {migrate} from '../lib/migration.mjs';
 import {route} from '../lib/server.generated.mjs';
 export default async function(request,context) {
-  if(process.env.CONTEXT !== 'production')return new Response('Dados privados indisponíveis em prévias.',{status:503});
+  if(DEPLOY_CONTEXT !== 'production')return Response.json({error:'Dados privados indisponíveis em prévias.'},{status:503,headers:{'Cache-Control':'no-store'}});
   const headers=new Headers(request.headers);
   // Sites identity headers are untrusted on an independent host.
   for(const name of [...headers.keys()])if(name.startsWith('oai-'))headers.delete(name);

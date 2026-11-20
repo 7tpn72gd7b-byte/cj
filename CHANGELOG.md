@@ -1,3 +1,9 @@
+## v57.1 — correção de ambiente na Netlify — 20/11/2026
+
+- Preserva no build a identificação do ambiente para liberar produção e continuar bloqueando prévias.
+- Respostas de erro da importação passam a ser JSON legível.
+- Importação definitiva e conferência do login ainda pendentes.
+
 ## v57 — migração Netlify (candidata, não publicada) — 20/11/2026
 
 - Adaptação isolada em netlify-app para Functions e armazenamento privado persistente.

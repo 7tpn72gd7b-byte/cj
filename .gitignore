@@ -8,3 +8,5 @@ netlify-app/public/
 netlify-app/lib/server.generated.mjs
 .netlify/
 *.private.json
+
+netlify-app/lib/deploy-context.generated.mjs

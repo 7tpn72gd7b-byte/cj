@@ -27,4 +27,6 @@ return routes[p]?routes[p](request,env):json({error:'Não encontrado'},404)}
 export {createScheduledSnapshot};
 `;
 await writeFile(path.join(here,'lib/server.generated.mjs'),code+routes);
+// CONTEXT is supplied at build time, not guaranteed in Functions runtime.
+await writeFile(path.join(here,'lib/deploy-context.generated.mjs'),'export const DEPLOY_CONTEXT = '+JSON.stringify(process.env.CONTEXT||'local')+';\n');
 console.log('Central CS: interface e servidor Netlify preparados.');
