@@ -10,7 +10,11 @@ Esta pasta adapta a interface e as rotas existentes para Netlify Functions e Net
 4. A aplicação fica bloqueada até a importação privada terminar. Prévias de deploy são bloqueadas e não acessam os dados de produção.
 5. Configurar `TEAM_ADMIN_USERNAME=juliocnovais` no ambiente de execução, caso o nome do administrador seja diferente do padrão.
 
-## Importação privada
+## Importação pelo navegador
+
+Com o projeto ainda privado, o proprietário deve criar a variável secreta `MIGRATION_ACCESS_KEY` com pelo menos 32 caracteres no ambiente Production/Functions da Netlify e realizar novo deploy para aplicá-la. Abra `/migration.html`, informe essa chave, selecione os quatro arquivos JSON da exportação e defina a nova senha administrativa. A chave e senha são preenchidas pelo proprietário, sem passar pelo chat. A importação valida IDs, auditoria, equipe e gravações e só libera o site após conferir tudo. A rota recusa nova importação após concluída. Remova a variável após concluir e publique novamente.
+
+## Importação privada por terminal (alternativa)
 
 O ZIP exportado contém dados privados: nunca colocá-lo nesta pasta, na publicação ou no GitHub.
 Extraia-o fora do checkout. Em terminal confiável, execute `npm ci` nesta pasta. Defina `NETLIFY_SITE_ID` e `NETLIFY_AUTH_TOKEN` no ambiente do operador (não em arquivos versionados). Execute:

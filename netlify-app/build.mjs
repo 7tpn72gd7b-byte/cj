@@ -10,6 +10,7 @@ html=html.replace('</script>',()=>extra+'\n</script>');
 html=html.replace('<script>','<script src="/xlsx-v45.js"></script><script>');
 const pub=path.join(here,'public');await rm(pub,{recursive:true,force:true});await mkdir(pub,{recursive:true});
 await writeFile(path.join(pub,'index.html'),html);
+await copyFile(path.join(here,'migration.html'),path.join(pub,'migration.html'));
 await copyFile(path.join(root,'assets/xlsx-0.20.3.full.min.js'),path.join(pub,'xlsx-v45.js'));
 await copyFile(path.join(root,'assets/cs-robot-run-v2.png'),path.join(pub,'cs-robot-run-v2.png'));
 const logo=(await readFile(path.join(root,'assets/central-cs-logo-v1.png'))).toString('base64');

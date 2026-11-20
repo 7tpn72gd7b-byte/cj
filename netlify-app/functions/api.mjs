@@ -1,5 +1,6 @@
 import {getStore} from '@netlify/blobs';
 import {bucketFromStore} from '../lib/bucket.mjs';
+import {migrate} from '../lib/migration.mjs';
 import {route} from '../lib/server.generated.mjs';
 export default async function(request,context) {
   if(process.env.CONTEXT !== 'production')return new Response('Dados privados indisponíveis em prévias.',{status:503});
@@ -12,6 +13,7 @@ export default async function(request,context) {
   const safe=new Request(url, {method:request.method,headers,...(!['GET','HEAD'].includes(request.method)?{body:await request.arrayBuffer()}: {})});
   const env={BUCKET:bucketFromStore(getStore({name:'central-cs',consistency:'strong'})),TEAM_ADMIN_USERNAME:process.env.TEAM_ADMIN_USERNAME || 'juliocnovais'};
   try {
+    if(url.pathname==='/api/migration')return await migrate(safe,env.BUCKET,process.env.MIGRATION_ACCESS_KEY);
     // An empty deployment is locked until the authenticated operator imports data/accounts.
     if(!await env.BUCKET.get('migration/ready.json'))return Response.json({error:'Migração em preparação. Acesso liberado após conferência dos dados.'},{status:503,headers:{'Cache-Control':'no-store'}});
     return await route(safe,env);
