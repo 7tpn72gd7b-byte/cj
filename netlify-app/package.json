@@ -1,0 +1,1 @@
+{"name":"central-cs-netlify","private":true,"type":"module","version":"57.0.0","scripts":{"build":"node build.mjs","test":"node --test test/*.test.mjs","import:backup":"node import-backup.mjs"},"dependencies":{"@netlify/blobs":"^10.0.0"},"engines":{"node":">=22"}}

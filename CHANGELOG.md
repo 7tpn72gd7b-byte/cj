@@ -1,3 +1,10 @@
+## v57 — migração Netlify (candidata, não publicada) — 20/11/2026
+
+- Adaptação isolada em netlify-app para Functions e armazenamento privado persistente.
+- Importador privado com conferência, preservação de IDs, scripts e auditoria; nova senha administrativa obrigatória.
+- Backups programados às 12h e 18h de Brasília, bloqueio de prévias e proteção contra atualizações concorrentes.
+- O site atual continua na v56.1; migração depende de autorização do repositório, importação e conferência final.
+
 ## Versão 56.1 — 13/11/2026
 
 - Rodapé centralizado em duas linhas, com separação entre direitos autorais e crédito de desenvolvimento.
