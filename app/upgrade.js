@@ -32,7 +32,7 @@ function syncMessage(message,retry=false){
  if($('clientSyncBadge'))$('clientSyncBadge').innerHTML=syncBadgeMarkup();
 }
 async function sendCloudSnapshot(snapshot){
- const options={method:'PUT',headers:{'Content-Type':'application/json',...(cloudEtag?{'If-Match':cloudEtag}:{'If-None-Match':'*'})},body:snapshot};
+ const options={method:'PUT',headers:{'Content-Type':'application/json',...(cloudEtag?{'X-CS-Expected-Version':cloudEtag}:{'X-CS-Create-Only':'1'})},body:snapshot};
  // Keep the same version precondition even when the first response is lost.
  for(const delay of [0,1000,3000]){
   if(delay)await new Promise(resolve=>setTimeout(resolve,delay));

@@ -1,3 +1,8 @@
+## v57.3 — salvamento na Netlify — 24/11/2026
+
+- Corrige a transmissão da versão da base pela Netlify, preservando a proteção contra edições simultâneas.
+- Mantém compatibilidade com os cabeçalhos HTTP anteriores.
+
 ## v57.2 — confirmação de salvamento — 24/11/2026
 
 - Cadastro e mudanças de etapa no Kanban só exibem confirmação após a resposta do servidor.
