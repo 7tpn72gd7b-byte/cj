@@ -1,3 +1,8 @@
+## v57.2 — confirmação de salvamento — 24/11/2026
+
+- Cadastro e mudanças de etapa no Kanban só exibem confirmação após a resposta do servidor.
+- Falhas temporárias de sincronização recebem novas tentativas com a mesma proteção de versão. A reconexão também tenta enviar a edição pendente.
+
 ## v57.1 — correção de ambiente na Netlify — 20/11/2026
 
 - Preserva no build a identificação do ambiente para liberar produção e continuar bloqueando prévias.
