@@ -57,15 +57,20 @@ function kanbanMoveFields(id){
  box.innerHTML=kanbanDateFields.slice(0,target).filter(key=>!c[key]||key==='activationDate').map(key=>field(key,labels[key],'date',key==='activationDate'?activationToday():values[key]||activationToday(),'required max="'+activationToday()+'"'+(key==='activationDate'?' readonly':''))).join('')+(target===4?field('activationTicket','Ticket de ativação','text',values.activationTicket||c.activationTicket||'','required maxlength="100"'):'');
  // As opções são parte do mesmo rascunho; não redefinir a proteção ao trocar o destino.
 }
-function saveKanbanMove(event,id){
+async function saveKanbanMove(event,id){
  event.preventDefault();const c=db.clients.find(c=>c.id===id),form=event.target,error=$('kanbanMoveError');
  if(!c||JSON.stringify(c)!==kanbanMoveSnapshot){error.textContent='O cadastro mudou enquanto a confirmação estava aberta. Feche e tente novamente.';return}
  if(cloudConflict){error.textContent='Resolva o conflito de sincronização antes de avançar a etapa.';return}
  const values=Object.fromEntries(new FormData(form)),target=Number(values.target),result=kanbanTransition(c,target,values,activationToday());if(result.error){error.textContent=result.error;return}
  const before=JSON.stringify(db),changes=Object.keys(result.data).filter(k=>JSON.stringify(c[k])!==JSON.stringify(result.data[k]));
  Object.assign(c,result.data);record(id,target===4?'Carteira ativada':'Etapa avançada no Kanban',kanbanStages[target][1]+' · '+changes.map(k=>(labels[k]||k)+': '+(dateFields.includes(k)?fmt(c[k]):typeof c[k]==='boolean'?(c[k]?'Sim':'Não'):c[k])).join(' · '));
- try{save()}catch(e){db=JSON.parse(before);error.textContent='Não foi possível salvar. Tente novamente.';return}
- kanbanClient=id;closeModal();render();toast('Etapa atualizada no cadastro e no Kanban.');
+ let confirmation;
+ try{confirmation=save()}catch(e){db=JSON.parse(before);error.textContent='Não foi possível salvar. Tente novamente.';return}
+ kanbanClient=id;closeModal();render();
+ await confirmation;
+ if(legacyMode)toast('Etapa atualizada neste navegador.');
+ else if(localStorage.getItem('ps_cs_pending')==='1')toast('Etapa preservada neste navegador. Confira o aviso de sincronização.');
+ else toast('Etapa salva no servidor.');
 }
 function kanbanDragStart(event,id){if(kanbanPointer){event.preventDefault();return}const c=db.clients.find(c=>c.id===id);if(!c||kanbanStage(c)===4){event.preventDefault();return}kanbanDragging=id;event.dataTransfer.effectAllowed='move';event.dataTransfer.setData('text/plain',id);event.currentTarget.classList.add('dragging')}
 function kanbanDragEnd(){kanbanDragging='';document.querySelectorAll('.kanban-column.drop-ready,.kanban-card.dragging').forEach(el=>el.classList.remove('drop-ready','dragging'))}

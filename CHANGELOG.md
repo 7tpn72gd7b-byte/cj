@@ -1,3 +1,26 @@
+## v57.3 — salvamento na Netlify — 24/11/2026
+
+- Corrige a transmissão da versão da base pela Netlify, preservando a proteção contra edições simultâneas.
+- Mantém compatibilidade com os cabeçalhos HTTP anteriores.
+
+## v57.2 — confirmação de salvamento — 24/11/2026
+
+- Cadastro e mudanças de etapa no Kanban só exibem confirmação após a resposta do servidor.
+- Falhas temporárias de sincronização recebem novas tentativas com a mesma proteção de versão. A reconexão também tenta enviar a edição pendente.
+
+## v57.1 — correção de ambiente na Netlify — 20/11/2026
+
+- Preserva no build a identificação do ambiente para liberar produção e continuar bloqueando prévias.
+- Respostas de erro da importação passam a ser JSON legível.
+- Importação definitiva e conferência do login ainda pendentes.
+
+## v57 — migração Netlify (candidata, não publicada) — 20/11/2026
+
+- Adaptação isolada em netlify-app para Functions e armazenamento privado persistente.
+- Importador privado com conferência, preservação de IDs, scripts e auditoria; nova senha administrativa obrigatória.
+- Backups programados às 12h e 18h de Brasília, bloqueio de prévias e proteção contra atualizações concorrentes.
+- O site atual continua na v56.1; migração depende de autorização do repositório, importação e conferência final.
+
 ## Versão 56.1 — 13/11/2026
 
 - Rodapé centralizado em duas linhas, com separação entre direitos autorais e crédito de desenvolvimento.

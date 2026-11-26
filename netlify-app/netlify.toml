@@ -1,0 +1,25 @@
+[build]
+  base = "netlify-app"
+  command = "npm run build"
+  publish = "public"
+  functions = "functions"
+[build.environment]
+  NODE_VERSION = "22"
+[functions]
+  node_bundler = "esbuild"
+[functions.backup]
+  schedule = "0 15,21 * * *"
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+  force = true
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "same-origin"
+[[headers]]
+  for = "/"
+  [headers.values]
+    Cache-Control = "no-cache"
